@@ -7,17 +7,17 @@ import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 import './App.css';
+import { Routes } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 function App() {
   return (
-    <Router>
-      <switch>
+    <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        </switch>
-    </Router>
+    </Routes>
     
   );
 }
