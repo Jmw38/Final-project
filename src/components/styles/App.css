@@ -1,0 +1,15 @@
+/* src/components/styles/App.css */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+

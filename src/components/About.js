@@ -1,16 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
+// src/components/About.js
+import React from 'react';
+import './styles/About.css';
 
-function about() {
-    return (
-        <div className="container">
-            <Link to="/">Home</Link>
-            <Link to="/about">About Us</Link>
-            <Link to="/contact">Contact Us</Link>
-            <Link to="/shop">Shop</Link>
-            <h2>About Us</h2>
-            <p>this is the about page of our finnal project.</p>
-        </div>
-    );
+function About() {
+  return (
+    <div className="about">
+      <h2>About</h2>
+      <p>This is a simple ToDo application built with React.</p>
+    </div>
+  );
 }
-export default about;
+
+export default About;
+

@@ -1,16 +1,14 @@
+// src/components/Header.js
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import './styles/Header.css';
 
 function Header() {
-    return (
-        <header className='header'>
-            <Link to='/'>Home</Link>
-            <Link to='/about'>About</Link>
-            <Link to='/contact'>Contact</Link>
-            <h1>Final Project</h1>
-        </header>
-    );
+  return (
+    <header className="header">
+      <h1>My ToDo App</h1>
+    </header>
+  );
 }
 
 export default Header;
+

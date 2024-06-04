@@ -1,17 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
+// src/components/Contact.js
+import React from 'react';
+import './styles/Contact.css';
 
 function Contact() {
-    return (
-        <div className="container">
-            <Link to="/">Home</Link>
-            <Link to="/about">About Us</Link>
-            <Link to="/contact">Contact Us</Link>
-            <Link to="/shop">Shop</Link>
-            <h2>Contact Us</h2>
-            <p>This is the contact page of our finnal project.</p>
-        </div>
-    );
+  return (
+    <div className="contact">
+      <h2>Contact</h2>
+      <p>Email: contact@todoapp.com</p>
+    </div>
+  );
 }
 
 export default Contact;

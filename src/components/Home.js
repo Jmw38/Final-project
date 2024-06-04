@@ -1,17 +1,27 @@
-import React from "react";
-import { Link } from "react-router-dom";
+// src/components/Home.js
+import React, { useState } from 'react';
+import TodoForm from './TodoForm';
+import TodoList from './TodoList';
+import './styles/Home.css';
 
 function Home() {
-    return (
-        <div className="container">
-            <Link to="/" style={{color: "black"}}>Home</Link>
-            <Link to="/about" style={{color: "black"}}>About Us</Link>
-            <Link to="/contact">Contact Us</Link>
-            <Link to="/shop">Shop</Link>    
-            <h2>Welcome to the Homepage</h2>
-            <p>This is the home page of our finnal project.</p>
-        </div>
-    );
+  const [todos, setTodos] = useState([]);
+
+  const addTodo = (todo) => {
+    setTodos([ ...todos, todo ]);
+  };
+
+  const deleteTodo = (index) => {
+    const newTodos = todos.filter((_, i) => i !== index);
+    setTodos(newTodos);
+  };
+
+  return (
+    <div className="home">
+      <TodoForm addTodo={addTodo} />
+      <TodoList todos={todos} deleteTodo={deleteTodo} />
+    </div>
+  );
 }
 
 export default Home;
