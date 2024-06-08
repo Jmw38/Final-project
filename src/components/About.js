@@ -6,7 +6,6 @@ function About() {
   return (
     <div className="about">
       <h2>About</h2>
-      <p>This is a simple ToDo application built with React.</p>
     </div>
   );
 }
