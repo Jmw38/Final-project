@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { TodoistApi } from '@doist/todoist-api-typescript';
-
-const api = new TodoistApi('f0e9d0a5e6d0e7f6e6b3a9c7e8d0d0b0b0b0b0b');
+import './styles/TodoAdd.css';
 
 const TodoAdd = ({ addTodo }) => {
   const [todoText, setTodoText] = useState('');
@@ -19,17 +17,19 @@ const TodoAdd = ({ addTodo }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="todo-add-form">
       <input
         type="text"
         value={todoText}
         onChange={(e) => setTodoText(e.target.value)}
         placeholder="Add a new todo"
+        className="todo-add-input"
       />
-      <button type="submit">Add Todo</button>
+      <button type="submit" className="todo-add-button">Add Todo</button>
     </form>
   );
 };
 
 export default TodoAdd;
+
 

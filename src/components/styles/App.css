@@ -1,15 +1,55 @@
-/* src/components/styles/App.css */
-body {
-  font-family: Arial, sans-serif;
+.App {
+  text-align: center;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 20px;
+.App-header {
+  background-color: #282c34;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-.mt-4 {
-  margin-top: 1.5rem;
+.todo-list {
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: left;
 }
+
+.todo-add-form {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.todo-add-input {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.todo-add-button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.todo-add-button:hover {
+  background-color: #0056b3;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  margin: 0.5rem 0;
+}
+
 

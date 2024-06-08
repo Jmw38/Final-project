@@ -1,7 +1,6 @@
 // src/components/About.js
 import React from 'react';
-import './styles/About.css';
-
+import "../components/styles/About.css";
 function About() {
   return (
     <div className="about">
