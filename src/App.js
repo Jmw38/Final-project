@@ -1,13 +1,14 @@
 // src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
-import './components/styles/App.css';
+import TodoList from './components/TodoList';
+
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
       </div>
   );
 }
+
+
 
 export default App;
 

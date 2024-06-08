@@ -1,32 +1,33 @@
 // src/components/TodoAdd.js
 import React, { useState } from 'react';
-import TodoForm from './TodoForm';
 import './styles/TodoAdd.css';
 
 function TodoAdd({ addTodo }) {
-  const [isFormVisible, setIsFormVisible] = useState(false);
+  const [title, setTitle] = useState('');
 
-  const handleAddButtonClick = () => {
-    setIsFormVisible(true);
-  };
-
-  const handleFormSubmit = (todo) => {
-    addTodo(todo);
-    setIsFormVisible(false);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (title.trim()) {
+      const newTodo = { title, completed: false };
+      // Call the passed down addTodo function to add the new todo
+      addTodo(newTodo);
+      setTitle('');
+    }
   };
 
   return (
-    <div className="todo-add">
-      {!isFormVisible && (
-        <button onClick={handleAddButtonClick} className="add-button">
-          Add Todo
-        </button>
-      )}
-      {isFormVisible && (
-        <TodoForm addTodo={handleFormSubmit} />
-      )}
-    </div>
+    <form className="add-todo-form" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        placeholder="Add a new todo"
+        required
+      />
+      <button type="submit">Add Todo</button>
+    </form>
   );
 }
 
 export default TodoAdd;
+

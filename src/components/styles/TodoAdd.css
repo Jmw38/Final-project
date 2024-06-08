@@ -17,3 +17,24 @@
     background-color: #45a049;
   }
   
+  .add-todo-form {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .add-todo-form input {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .add-todo-form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
