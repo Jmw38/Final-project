@@ -1,6 +1,7 @@
 // src/components/TodoItem.js
 import React from 'react';
 import './styles/TodoItem.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function TodoItem({ todo, deleteTodo, updateTodo }) {
   const handleComplete = () => {

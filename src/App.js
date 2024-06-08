@@ -17,14 +17,16 @@ function App() {
   return (
       <div className="App">
         <Router>
+          <container>
         <Header />
         <Navbar />
         <main className="container mt-4">
-            <router path="/" exact component={Home} />
+            <router exact path="/" component={Home} />
             <router path="/about" component={About} />
             <router path="/contact" component={Contact} />
         </main>
         <Footer />
+        </container>
         </Router>
       </div>
   );

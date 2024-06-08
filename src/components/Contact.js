@@ -1,12 +1,11 @@
-// src/components/Contact.js
 import React from 'react';
-import './styles/Contact.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Contact() {
   return (
-    <div className="contact">
-      <h2>Contact</h2>
-      <p>Email: contact@todoapp.com</p>
+    <div>
+      <h1>Contact</h1>
+      <p>Contact us at example@example.com.</p>
     </div>
   );
 }

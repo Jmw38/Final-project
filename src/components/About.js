@@ -1,10 +1,11 @@
-// src/components/About.js
 import React from 'react';
-import "../components/styles/About.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function About() {
   return (
-    <div className="about">
-      <h2>About</h2>
+    <div>
+      <h1>About</h1>
+      <p>This is the about page.</p>
     </div>
   );
 }

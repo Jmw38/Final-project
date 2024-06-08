@@ -1,25 +1,11 @@
-// src/components/Home.js
-import React, { useState } from 'react';
-import TodoForm from './TodoForm';
-import TodoList from './TodoList';
-import './styles/Home.css';
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Home() {
-  const [todos, setTodos] = useState([]);
-
-  const addTodo = (todo) => {
-    setTodos([ ...todos, todo ]);
-  };
-
-  const deleteTodo = (index) => {
-    const newTodos = todos.filter((_, i) => i !== index);
-    setTodos(newTodos);
-  };
-
   return (
-    <div className="home">
-      <TodoForm addTodo={addTodo} />
-      <TodoList todos={todos} deleteTodo={deleteTodo} />
+    <div>
+      <h1>Home</h1>
+      <p>Welcome to the home page.</p>
     </div>
   );
 }
