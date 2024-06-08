@@ -7,6 +7,11 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
+import { TodoistApi } from '@doist/todoist-api-typescript';
+
+const api = new TodoistApi('f0e9d0a5e6d0e7f6e6b3a9c7e8d0d0b0b0b0b0b');
+
+
 
 
 function App() {
