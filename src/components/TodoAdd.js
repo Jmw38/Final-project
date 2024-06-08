@@ -9,7 +9,7 @@ function TodoAdd({ addTodo }) {
     e.preventDefault();
     if (title.trim()) {
       const newTodo = { title, completed: false };
-      // Call the passed down addTodo function to add the new todo
+      //Call the passed down addTodo function to add the new todo
       addTodo(newTodo);
       setTitle('');
     }
