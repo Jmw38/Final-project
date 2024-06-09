@@ -9,13 +9,14 @@ const AddTodo = ({ addTodo }) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
 
-    const onSubmit = e => {
+    const onSubmit = async (e) => {
         e.preventDefault();
         if (title && description) {
             console.log('Submitting Todo:', NewTodo);
             addTodo(NewTodo);
             setTitle('');
             setDescription('');
+            console.log('Todo added and form cleared');
         } else {
             console.log('Title or Description is empty');
         }

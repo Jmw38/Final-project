@@ -1,32 +1,59 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
-import { BrowserRouter as Router , Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import axios from 'axios';
 import Header from './Header';
 import Footer from './Footer';
 import Home from './Home';
 import About from './About';
 import TodoList from './TodoList';
+import AddTodo from './AddTodo';
 import EditTodo from './EditTodo';
 import NotFound from './NotFound';
 
 const TodoApp = () => {
     const [todos, setTodos] = useState([]);
 
-    const addTodo = (todo) => {
-        todo.id = todos.length ? todos[todos.length - 1].id + 1 : 1;
-        console.log('Adding Todo: ', todo);
-        setTodos([...todos, todo]);
+    useEffect(() => {
+        fetchTodos();
+    }, []);
+
+    const fetchTodos = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/api/todos');
+            setTodos(response.data);
+        } catch (error) {
+            console.error('Error fetching todos:', error);
+        }
     };
 
-    const deleteTodo = (id) => {
-        setTodos(todos.filter(todo => todo.id !== id));
+    const addTodo = async (todo) => {
+        try {
+            const response = await axios.post('http://localhost:5000/api/todos', todo);
+            setTodos([...todos, response.data]);
+        } catch (error) {
+            console.error('Error adding todo:', error);
+        }
     };
 
-    const updateTodo = (updatedTodo) => {
-        setTodos(todos.map(todo => (todo.id === updatedTodo.id ? updatedTodo : todo)));
+    const deleteTodo = async (id) => {
+        try {
+            await axios.delete(`http://localhost:5000/api/todos/${id}`);
+            setTodos(todos.filter(todo => todo.id !== id));
+        } catch (error) {
+            console.error('Error deleting todo:', error);
+        }
     };
-{
-    
+
+    const updateTodo = async (updatedTodo) => {
+        try {
+            const response = await axios.put(`http://localhost:5000/api/todos/${updatedTodo.id}`, updatedTodo);
+            setTodos(todos.map(todo => (todo.id === response.data.id ? response.data : todo)));
+        } catch (error) {
+            console.error('Error updating todo:', error);
+        }
+    };
+
     return (
         <Router>
             <Header />
@@ -40,7 +67,7 @@ const TodoApp = () => {
                     />
                     <Route 
                         path="/add-todo" 
-                        render={() => <addTodo addTodo={addTodo} />}
+                        render={() => <AddTodo addTodo={addTodo} />} 
                     />
                     <Route 
                         path="/edit-todo/:id" 
@@ -52,7 +79,6 @@ const TodoApp = () => {
             <Footer />
         </Router>
     );
-}
 };
 
 export default TodoApp;
