@@ -1,28 +1,20 @@
-// src/components/TodoItem.js
 import React from 'react';
-import '../components/styles/TodoItem.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-function TodoItem({ todo, deleteTodo, updateTodo }) {
-  const handleComplete = () => {
-    const updatedTodo = { ...todo, completed: !todo.completed };
-    updateTodo(updatedTodo);
-  };
-
-  return (
-    <div className={`todo-item ${todo.completed ? 'completed' : ''}`}>
-      <span>{todo.title}</span>
-      <div>
-        <button onClick={handleComplete}>
-          {todo.completed ? 'Undo' : 'Complete'}
-        </button>
-        <button onClick={() => deleteTodo(todo.id)}>Delete</button>
-      </div>
-    </div>
-  );
-}
+const TodoItem = ({ todo, deleteTodo }) => (
+    <Card className="mb-3">
+        <Card.Body>
+            <Card.Title>{todo.title}</Card.Title>
+            <Card.Text>{todo.description}</Card.Text>
+            <Button variant="danger" onClick={() => deleteTodo(todo.id)}>Delete</Button>
+            <Button variant="secondary" as={Link} to={`/edit-todo/${todo.id}`}>Edit</Button>
+        </Card.Body>
+    </Card>
+);
 
 export default TodoItem;
+
 
 
 

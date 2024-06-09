@@ -1,14 +1,11 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../components/styles/Home.css';
 
-function Home() {
-  return (
+const Home = () => (
     <div>
-      <h1>Home</h1>
-      <p>Welcome to the home page.</p>
+        <h1>Welcome to the ToDo List App</h1>
+        <p>Manage your tasks efficiently.</p>
     </div>
-  );
-}
+);
 
 export default Home;
+
