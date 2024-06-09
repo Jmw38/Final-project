@@ -1,24 +1,29 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, ListGroup } from 'react-bootstrap';
 
-const NewTodo = {
-    title: '',
-    description: ''
-};
 const AddTodo = ({ addTodo }) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [task, setTask] = useState('');
+    const [tasks, setTasks] = useState([]);
+
+    const handleAddTask = () => {
+        if (task) {
+            setTasks([...tasks, task]);
+            setTask('');
+        }
+    };
 
     const onSubmit = async (e) => {
         e.preventDefault();
         if (title && description) {
-            console.log('Submitting Todo:', NewTodo);
-            addTodo(NewTodo);
+            const newTodo = { title, description, tasks };
+            await addTodo(newTodo);
             setTitle('');
             setDescription('');
-            console.log('Todo added and form cleared');
+            setTasks([]);
         } else {
-            console.log('Title or Description is empty');
+            console.log('Title or Description is missing');
         }
     };
 
@@ -42,11 +47,26 @@ const AddTodo = ({ addTodo }) => {
                     placeholder="Enter description" 
                 />
             </Form.Group>
-            <Button variant="primary" type="submit">Add Todo</Button>
+            <Form.Group controlId="formTask">
+                <Form.Label>Task</Form.Label>
+                <Form.Control 
+                    type="text" 
+                    value={task} 
+                    onChange={(e) => setTask(e.target.value)} 
+                    placeholder="Enter task" 
+                />
+                <Button variant="secondary" onClick={handleAddTask} className="mt-2">Add Task</Button>
+            </Form.Group>
+            <ListGroup className="mt-3">
+                {tasks.map((task, index) => (
+                    <ListGroup.Item key={index}>{task}</ListGroup.Item>
+                ))}
+            </ListGroup>
         </Form>
     );
 };
 
 export default AddTodo;
+
 
 

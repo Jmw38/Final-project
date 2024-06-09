@@ -29,7 +29,7 @@ const TodoApp = () => {
 
     const addTodo = async (todo) => {
         try {
-            const response = await axios.post('http://localhost:5000/api/todos', todo);
+            const response = await axios.post('https://api-nodejs-todolist.herokuapp.com/task', todo);
             setTodos([...todos, response.data]);
         } catch (error) {
             console.error('Error adding todo:', error);
@@ -38,7 +38,7 @@ const TodoApp = () => {
 
     const deleteTodo = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/api/todos/${id}`);
+            await axios.delete(`https://api-nodejs-todolist.herokuapp.com/task/5ddcd1566b55da0017597239${id}`);
             setTodos(todos.filter(todo => todo.id !== id));
         } catch (error) {
             console.error('Error deleting todo:', error);
@@ -47,7 +47,7 @@ const TodoApp = () => {
 
     const updateTodo = async (updatedTodo) => {
         try {
-            const response = await axios.put(`http://localhost:5000/api/todos/${updatedTodo.id}`, updatedTodo);
+            const response = await axios.put(`https://api-nodejs-todolist.herokuapp.com/task/5ddcd1566b55da0017597239${updatedTodo.id}`, updatedTodo);
             setTodos(todos.map(todo => (todo.id === response.data.id ? response.data : todo)));
         } catch (error) {
             console.error('Error updating todo:', error);
