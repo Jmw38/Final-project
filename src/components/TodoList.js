@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import TodoItem from './TodoItem';
 import TodoAdd from './TodoAdd';
-import './TodoList.css';
+import '..components/styles/TodoList.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 

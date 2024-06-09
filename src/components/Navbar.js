@@ -1,7 +1,7 @@
 // src/components/Navbar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './styles/Navbar.css';
+import '../components/styles/Navbar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Navbar() {

@@ -1,6 +1,6 @@
 // src/components/TodoForm.js
 import React, { useState } from 'react';
-import './styles/TodoForm.css';
+import '../components/styles/TodoForm.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function TodoForm({ addTodo }) {

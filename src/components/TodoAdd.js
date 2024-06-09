@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './styles/TodoAdd.css';
+import './components/styles/TodoAdd.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const TodoAdd = ({ addTodo }) => {
@@ -32,5 +32,4 @@ const TodoAdd = ({ addTodo }) => {
 };
 
 export default TodoAdd;
-
 
